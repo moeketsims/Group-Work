@@ -1,4 +1,36 @@
+library(shiny)
+library(shinydashboard)
+library(tidyverse)
+library(ggplot2)
+library(reshape2)
+library(DT)
 
+ui<- dashboardPage(
+    
+    dashboardHeader(
+        title = "Crime Analytics"),
+    
+    dashboardSidebar(
+    selectInput(inputId ="Select_input", label="select class:", 
+                choices=c( "CRIMES AGAINST THE PERSON"="CRIMES_AGAINST_THE _PERSON" ,
+                           "CONTACT RELATED CRIMES" = "CONTACT_RELATED_CRIMES", 
+                        "PROPERTY RELATED CRIMES"="PROPERTY_RELATED_CRIMES", 
+                        "OTHER SERIOUS CRIMES"= "OTHER_SERIOUS_CRIMES", 
+                        "CRIME DETECTED AS A RESULT OF POLICE ACTION"=
+                        "CRIME_DETECTED_AS_A_RESULT_OF_POLICE_ACTION",
+                        "SUBCATEGORIES OF AGGRAVATED ROBBERY"="SUBCATEGORIES_OF_AGGRAVATED_ROBBERY")), 
+        
+        sliderInput("Slider_input", "select minimum cases:", 0,500,250)
+    ),
+    dashboardBody(
+        column(width = 6,plotOutput("Graph_One",width=600, height =500)
+        ),
+        column(width = 6,plotOutput("Graph_Two", width =600 ,height =500)
+        ),
+        DT::dataTableOutput("The_Table", width = 700, height = 500)
+    )
+    
+)
 server <- function(input, output){
     
     df<-tibble(read.csv("crime_data.csv", sep=","))
