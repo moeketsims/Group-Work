@@ -19,7 +19,7 @@ KWANELE,FADANE 202000003
 
 FAITH,LEBONE,MOTSHABI 201900815
 
-- Created the output function for the graphs and table
+- Created the table
 
 - Created the layout of the graphs (for example , coord_flop()
 
