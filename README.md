@@ -19,9 +19,9 @@ KWANELE,FADANE 202000003
 
 FAITH,LEBONE,MOTSHABI 201900815
 
-- Created the table
+- Created the output for the graphs and table
 
-- Created the layout of the graphs (for example , coord_flop()
+- Created the layout of the graphs (for example , coord_flop())
 
 - Created the DT function
 
